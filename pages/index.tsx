@@ -5,7 +5,10 @@ import Image from 'next/image';
 
 import {
   Box,
+  BoxProps,
   Button,
+  Link,
+  LinkProps,
   Tabs,
   Tab,
   TabList,
@@ -102,6 +105,12 @@ const Home: NextPage = () => {
       <NextLink href="https://google.com" passHref>
         <Button as="a">as=a button</Button>
       </NextLink>
+
+      <ShadowBox>Hello</ShadowBox>
+      <ShadowBox p={4}>Hello</ShadowBox>
+      <HoverLink>HoverLink</HoverLink>
+      <NumberingHoverLink number={1}>odd</NumberingHoverLink>
+      <NumberingHoverLink number={2}>even</NumberingHoverLink>
     </>
   );
 };
@@ -116,6 +125,28 @@ const SwitchMobileOrDesktop: React.FC<{}> = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return <Box>{isMobile ? 'Mobile' : 'Desktop'}コンポーネント</Box>;
+};
+
+const ShadowBox: React.FC<BoxProps> = (props) => (
+  <Box rounded="base" shadow="md" {...props} />
+);
+
+const HoverLink: React.FC<LinkProps> = (props) => {
+  return <Link _hover={{ bg: 'teal.200' }} p={2} {...props} />;
+};
+
+const NumberingHoverLink: React.FC<{ number: number } & LinkProps> = ({
+  number,
+  ...linkProps
+}) => {
+  return (
+    <Link
+      _hover={{ bg: 'teal.200' }}
+      bg={number % 2 ? 'gray.100' : 'white'}
+      p={2}
+      {...linkProps}
+    />
+  );
 };
 
 export default Home;
