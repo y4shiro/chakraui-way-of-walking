@@ -10,6 +10,7 @@ import {
   TabList,
   TabPanels,
   TabPanel,
+  Text,
 } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
@@ -52,6 +53,11 @@ const Home: NextPage = () => {
           </TabPanel>
         </TabPanels>
       </Tabs>
+
+      <Text fontSize="sm">Small Text</Text>
+
+      <Box p={4} backgroundColor={'blue.100'} />
+      <Box p={'4px'} backgroundColor={'blue.200'} />
     </>
   );
 };
