@@ -12,6 +12,7 @@ import {
   TabPanel,
   Text,
   Input,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
@@ -91,6 +92,8 @@ const Home: NextPage = () => {
       >
         オブジェクトでレスポンシブ指定
       </Box>
+
+      <SwitchMobileOrDesktop />
     </>
   );
 };
@@ -100,5 +103,11 @@ const Quoted: React.FC<{}> = ({ children }) => (
     {children}
   </Box>
 );
+
+const SwitchMobileOrDesktop: React.FC<{}> = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
+  return <Box>{isMobile ? 'Mobile' : 'Desktop'}コンポーネント</Box>;
+};
 
 export default Home;
