@@ -16,6 +16,14 @@ import {
 const Home: NextPage = () => {
   return (
     <>
+      <Box
+        top={0}
+        position="sticky"
+        zIndex={'sticky'}
+        backgroundColor="lightgray"
+      >
+        ヘッダ
+      </Box>
       <h1>Chakra やっていき</h1>
       <Box padding={10} backgroundColor="skyblue">
         padding={10} / backgroundColor= skyblue
