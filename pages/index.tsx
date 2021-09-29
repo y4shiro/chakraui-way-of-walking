@@ -16,6 +16,9 @@ const Home: NextPage = () => {
         <ListItem>
           <NextLink href="/chapter2">Chapter2</NextLink>
         </ListItem>
+        <ListItem>
+          <NextLink href="/chapter3">Chapter3</NextLink>
+        </ListItem>
       </List>
     </>
   );
