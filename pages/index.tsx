@@ -2,7 +2,15 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 
-import { Box } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Tabs,
+  Tab,
+  TabList,
+  TabPanels,
+  TabPanel,
+} from '@chakra-ui/react';
 
 const Home: NextPage = () => {
   return (
@@ -17,6 +25,33 @@ const Home: NextPage = () => {
       <Box px={10} my={10} backgroundColor="skyblue">
         px=10 my=10
       </Box>
+      <Box
+        background={'blue.100'}
+        borderColor={'teal.300'}
+        color={'green.800'}
+        borderBottomWidth={4}
+        p={2}
+      >
+        background={'blue.100'} borderColor={'teal.300'} color={'green.800'}
+      </Box>
+
+      <Button colorScheme="green">Green Button</Button>
+      <Button colorScheme="blue">Blue Button</Button>
+      <Button colorScheme="red">Red Button</Button>
+      <Tabs colorScheme="red">
+        <TabList>
+          <Tab>dog</Tab>
+          <Tab>cat</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <p>one!</p>
+          </TabPanel>
+          <TabPanel>
+            <p>two!</p>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </>
   );
 };
