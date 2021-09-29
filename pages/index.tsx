@@ -77,6 +77,20 @@ const Home: NextPage = () => {
         placeholder="プレースホルダー"
         _placeholder={{ color: 'red.200' }}
       />
+
+      <Box bg={['red.200', 'yellow.200', 'green.200', 'blue.200']}>
+        配列でレスポンシブ指定
+      </Box>
+      <Box
+        bg={{
+          base: 'red.200',
+          sm: 'yellow.200',
+          md: 'green.200',
+          lg: 'blue.200',
+        }}
+      >
+        オブジェクトでレスポンシブ指定
+      </Box>
     </>
   );
 };
