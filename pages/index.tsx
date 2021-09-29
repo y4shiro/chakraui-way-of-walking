@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import NextLink from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -49,7 +50,7 @@ const Home: NextPage = () => {
       <Button colorScheme="green">Green Button</Button>
       <Button colorScheme="blue">Blue Button</Button>
       <Button colorScheme="red">Red Button</Button>
-      <Tabs colorScheme="red">
+      {/* <Tabs colorScheme="red">
         <TabList>
           <Tab>dog</Tab>
           <Tab>cat</Tab>
@@ -62,7 +63,7 @@ const Home: NextPage = () => {
             <p>two!</p>
           </TabPanel>
         </TabPanels>
-      </Tabs>
+      </Tabs> */}
 
       <Text fontSize="sm">Small Text</Text>
 
@@ -94,6 +95,13 @@ const Home: NextPage = () => {
       </Box>
 
       <SwitchMobileOrDesktop />
+
+      <Button as="a" href="https://google.com">
+        as=a button
+      </Button>
+      <NextLink href="https://google.com" passHref>
+        <Button as="a">as=a button</Button>
+      </NextLink>
     </>
   );
 };
