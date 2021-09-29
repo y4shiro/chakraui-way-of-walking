@@ -1,5 +1,14 @@
 import type { NextPage } from 'next';
-import { Box, Button, Flex, Grid, Heading, Stack } from '@chakra-ui/react';
+import {
+  Avatar,
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Heading,
+  HStack,
+  Stack,
+} from '@chakra-ui/react';
 
 const sampleText: string[] = ['dog', 'cat', 'rabbit'];
 
@@ -58,7 +67,38 @@ const Chapter2: NextPage = () => {
           </Box>
         ))}
       </Flex>
+
+      <CommentItemBox />
+      <CommentItemHStack />
     </>
+  );
+};
+
+const CommentItemBox = () => {
+  return (
+    <Box display="flex" flexDirection="row" p={4}>
+      <Avatar />
+      <Box>
+        <Heading size="sm">Some member</Heading>
+        <Box>
+          あのイーハトーヴォのすきとほった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモーリオ市、郊外のぎらぎらひかる草の波
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+const CommentItemHStack = () => {
+  return (
+    <HStack p={4}>
+      <Avatar />
+      <Stack>
+        <Heading size="sm">Some member</Heading>
+        <Box>
+          あのイーハトーヴォのすきとほった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモーリオ市、郊外のぎらぎらひかる草の波
+        </Box>
+      </Stack>
+    </HStack>
   );
 };
 
