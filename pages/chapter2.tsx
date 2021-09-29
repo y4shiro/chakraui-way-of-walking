@@ -8,6 +8,7 @@ import {
   Heading,
   HStack,
   Stack,
+  Spacer,
 } from '@chakra-ui/react';
 
 const sampleText: string[] = ['dog', 'cat', 'rabbit'];
@@ -70,6 +71,43 @@ const Chapter2: NextPage = () => {
 
       <CommentItemBox />
       <CommentItemHStack />
+
+      <h2>Spacer はいいぞ</h2>
+      <Flex>
+        <Box bg={'red.100'}>Hello</Box>
+        <Spacer />
+        <Box bg={'red.100'}>Hello</Box>
+        <Spacer />
+        <Box bg={'red.100'}>Hello</Box>
+      </Flex>
+
+      <Flex justifyContent="space-between" p={4}>
+        <Flex>
+          <Box color="gray.500" px={1}>
+            @taro:
+          </Box>
+          <Box fontWeight="bold">Hello!</Box>
+        </Flex>
+        <Flex>
+          <Box color="gray.500">2021-09-29 12:00</Box>
+        </Flex>
+      </Flex>
+
+      <Flex p={4}>
+        <Box color="gray.500" px={1}>
+          @taro:
+        </Box>
+        <Box fontWeight="bold">Hello!</Box>
+        <Spacer />
+        <Box color="gray.500">2021-09-29 12:00</Box>
+      </Flex>
+
+      <HStack p={4} spacing={1}>
+        <Box color="gray.500">@taro:</Box>
+        <Box fontWeight="bold">Hello!</Box>
+        <Spacer />
+        <Box color="gray.500">2021-09-29 12:00</Box>
+      </HStack>
     </>
   );
 };
