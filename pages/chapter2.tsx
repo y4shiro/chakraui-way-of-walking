@@ -9,6 +9,7 @@ import {
   HStack,
   Stack,
   Spacer,
+  chakra,
 } from '@chakra-ui/react';
 
 const sampleText: string[] = ['dog', 'cat', 'rabbit'];
@@ -108,6 +109,14 @@ const Chapter2: NextPage = () => {
         <Spacer />
         <Box color="gray.500">2021-09-29 12:00</Box>
       </HStack>
+
+      <h2>chakra factory</h2>
+      <Canvas w={100} h={100} bg="red.100" />
+      <Marquee color="blue.500" bg="red.100">
+        aaa
+      </Marquee>
+      <CanvasWithStyle />
+      <RoundedButton>RoundedButton</RoundedButton>
     </>
   );
 };
@@ -139,5 +148,19 @@ const CommentItemHStack = () => {
     </HStack>
   );
 };
+
+const Canvas = chakra('canvas');
+// @ts-ignore
+const Marquee = chakra('marquee');
+
+const CanvasWithStyle = chakra('canvas', {
+  baseStyle: { w: 100, h: 100, bg: 'red.100' },
+});
+
+const RoundedButton = chakra(Button, {
+  baseStyle: {
+    rounded: 'full',
+  },
+});
 
 export default Chapter2;
