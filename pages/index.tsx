@@ -11,6 +11,7 @@ import {
   TabPanels,
   TabPanel,
   Text,
+  Input,
 } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
@@ -66,8 +67,24 @@ const Home: NextPage = () => {
 
       <Box p={4} backgroundColor={'blue.100'} />
       <Box p={'4px'} backgroundColor={'blue.200'} />
+
+      <Text _hover={{ fontWeight: 'bold' }}>Hover Me!</Text>
+      <Text color="blue.500" fontSize="sm" _hover={{ fontWeight: 'bold' }}>
+        Hover Me!
+      </Text>
+      <Quoted>ここに任意の文字</Quoted>
+      <Input
+        placeholder="プレースホルダー"
+        _placeholder={{ color: 'red.200' }}
+      />
     </>
   );
 };
+
+const Quoted: React.FC<{}> = ({ children }) => (
+  <Box _before={{ content: `"「"` }} _after={{ content: `"」"` }}>
+    {children}
+  </Box>
+);
 
 export default Home;
