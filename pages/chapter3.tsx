@@ -1,7 +1,18 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, ReactNode, useRef, useState } from 'react';
 import type { NextPage } from 'next';
 
-import { Box, Heading, Skeleton } from '@chakra-ui/react';
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Heading,
+  HStack,
+  Skeleton,
+  Spinner,
+} from '@chakra-ui/react';
 import { useIntersection } from 'use-intersection';
 
 const animals = ['dog', 'cat', 'rabbit', 'mouse', 'bird'];
@@ -11,6 +22,8 @@ const Chapter3: NextPage = () => {
     <>
       <Heading>Chapter3</Heading>
       <SomeItems items={animals} />
+
+      <LazyLoadingAccordion title="open component">Hello</LazyLoadingAccordion>
     </>
   );
 };
@@ -36,6 +49,34 @@ const SomeItems = ({ items }) => {
         return <LazyElement key={item}>{item}</LazyElement>;
       })}
     </>
+  );
+};
+
+const LazyLoadingAccordion: FC<{ title: ReactNode }> = ({
+  title,
+  children,
+}) => {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <Accordion allowToggle reduceMotion>
+      <AccordionItem>
+        {({ isExpanded }) => {
+          setLoaded(isExpanded || loaded);
+          return (
+            <>
+              <AccordionButton fontSize="sm">
+                <HStack>
+                  <AccordionIcon />
+                  <Box>{title}</Box>
+                </HStack>
+              </AccordionButton>
+              <AccordionPanel>{loaded ? children : <Spinner />}</AccordionPanel>
+            </>
+          );
+        }}
+      </AccordionItem>
+    </Accordion>
   );
 };
 
